@@ -8,7 +8,10 @@ function handleSubmit(event) {
 	const data = new FormData(form);
 	const title = data.get('title');
 
-	console.warn('Titulo', title);
+	store.dispatch({
+		type: 'ADD_SONG',
+		payload: { title }
+	});
 };
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
