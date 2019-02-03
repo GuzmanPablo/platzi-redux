@@ -23,8 +23,18 @@ const initialState = [{
 	"title": "Opale"
 }];
 
+const reducer = (state, action) => {
+	const { type, payload } = action;
+	switch(type) {
+		case 'ADD_SONG':
+			return [...state, payload];
+		default: 
+			return state;
+	}
+}
+
 const store = createStore(
-	(state) => state,
+	reducer,
 	initialState,
 	devTools
 );
