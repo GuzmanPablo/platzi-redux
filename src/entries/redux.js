@@ -25,3 +25,12 @@ const store = createStore(
 	initialState,
 	devTools
 );
+
+const container = document.getElementById('playlist');
+const playlist = store.getState();
+
+playlist.forEach((item, i)=> {
+	const template = document.createElement('p');
+	template.textContent = `${i+1}. item.title`;
+	container.appendChild(template);
+});
