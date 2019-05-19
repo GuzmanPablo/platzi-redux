@@ -18,10 +18,14 @@ const SearchInput = styled.input`
 	border: 1px solid ${Theme.colors.grey[100]};
 `;
 
-function Search (props) {
+function Search ({ handleSubmit, setRef }) {
 	return (
-		<Container>
-			<SearchInput type="text" placeholder="Buscar..." />
+		<Container onSubmit={handleSubmit}>
+			<SearchInput
+				innerRef={setRef}
+				type="text"
+				placeholder="Buscar..."
+			/>
 		</Container>
 	)
 }

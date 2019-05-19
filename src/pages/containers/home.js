@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Related from '../components/related'
 import HomeLayout from '../components/home-layout';
@@ -31,7 +32,8 @@ class Home extends Component {
 					<Related />
 					<SearchContainer />
 					<Categories
-						categories={this.props.data.categories}
+						categories={this.props.categories}
+						search={this.props.search}
 						handleModalToggle={this.handleToggleModal}
 					/>
 					{
@@ -50,5 +52,8 @@ class Home extends Component {
 		)
 	}
 }
+const mapStateToProps = ({ data: { categories }, search }) => {
+	return { categories, search }
+};
 
-export default Home;
+export default connect(mapStateToProps)(Home);
